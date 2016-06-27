@@ -21,7 +21,7 @@ class Test_count_letter_in_string(unittest.TestCase):
     def test_count_if_list(self):
         self.assertEqual(third.count_letter_in_string([1,4,8,2,8], '8'), 0)
 
-    def test_count_if_true_or_not(self):
+    def test_count_if_boolean(self):
         self.assertEqual(third.count_letter_in_string(True, 'u'), 0)
 
     def test_count_with_hypen_letters(self):
@@ -30,7 +30,8 @@ class Test_count_letter_in_string(unittest.TestCase):
     def test_count_with_uppercase_letters(self):
         self.assertNotEqual(third.count_letter_in_string('asztalavisZTA', 'a'), 4)
 
-
+    def test_count_if_letter_more_than_one_character(self):
+        self.assertEqual(third.count_letter_in_string('macska', 'ka'), 0)
 
 if __name__ == '__main__':
     unittest.main()
