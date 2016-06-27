@@ -33,15 +33,13 @@ class Rocket():
         self.launches += 1
 
     def refill(self):
-        used_fuel = 0
         if self.rocket_type == 'falcon1':
-            while self.starting_fuel_level < 5:
-                self.starting_fuel_level += 1
-                used_fuel += 1
-        if self.rocket_type == 'falcon9':
-            while self.starting_fuel_level < 20:
-                self.starting_fuel_level += 1
-                used_fuel += 1
+            used_fuel = 5 - self.starting_fuel_level
+            self.starting_fuel_level = 5
+
+        elif self.rocket_type == 'falcon9':
+            used_fuel = 20 - self.starting_fuel_level
+            self.starting_fuel_level = 20
         return used_fuel
 
     def getStats(self):
@@ -77,9 +75,11 @@ class SpaceX():
     def __init__(self, stored_fuel):
         self.stored_fuel = stored_fuel
         self.rockets = []
+        self.launches = 0
 
     def addRocket(self, rocket):
         self.rockets.append(rocket)
+        self.launches += rocket.launches
 
     def refill_all(self):
         for rocket in self.rockets:
@@ -88,15 +88,12 @@ class SpaceX():
     def launch_all(self):
         for rocket in self.rockets:
             rocket.launch()
-        self.launches += 1
+        self.launches += len(self.rockets)
 
     def buy_fuel(self, amount):
         self.stored_fuel += amount
 
     def getStats(self):
-        self.launches = 0
-        for rocket in self.rockets:
-            self.launches += rocket.launches
         stat = 'rockets: ' + str(len(self.rockets)) + ', fuel: ' + str(self.stored_fuel) + ', launches: ' + str(self.launches)
         return stat
 
