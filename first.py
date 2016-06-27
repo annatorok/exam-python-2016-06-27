@@ -10,4 +10,4 @@ def every_second_element(input):
     new_list += input[1::2]
     return new_list
 
-print(every_second_element([1,2,3,4,5]))
+print(every_second_element([1,2,3,4,5,7,8,9]))
