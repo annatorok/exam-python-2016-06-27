@@ -87,7 +87,7 @@ class SpaceX():
     def launch_all(self):
         for rocket in self.rockets:
             rocket.launch()
-        self.launches += len(self.rockets)
+            self.launches += 1
 
     def buy_fuel(self, amount):
         self.stored_fuel += amount
