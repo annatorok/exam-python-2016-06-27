@@ -36,7 +36,6 @@ class Rocket():
         if self.rocket_type == 'falcon1':
             used_fuel = 5 - self.starting_fuel_level
             self.starting_fuel_level = 5
-
         elif self.rocket_type == 'falcon9':
             used_fuel = 20 - self.starting_fuel_level
             self.starting_fuel_level = 20
