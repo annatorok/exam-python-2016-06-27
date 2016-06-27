@@ -77,7 +77,6 @@ class SpaceX():
     def __init__(self, stored_fuel):
         self.stored_fuel = stored_fuel
         self.rockets = []
-        self.launches = 0
 
     def addRocket(self, rocket):
         self.rockets.append(rocket)
@@ -95,6 +94,7 @@ class SpaceX():
         self.stored_fuel += amount
 
     def getStats(self):
+        self.launches = 0
         for rocket in self.rockets:
             self.launches += rocket.launches
         stat = 'rockets: ' + str(len(self.rockets)) + ', fuel: ' + str(self.stored_fuel) + ', launches: ' + str(self.launches)
